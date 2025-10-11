@@ -1,0 +1,690 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" lang="eng">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Quintessential&family=Road+Rage&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="WoW_icon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warlords of Draenor: Journey into Draenor</title>
+</head>
+
+<body>
+<div id="preloader">
+  <div class="map-bg"></div>
+<div class="loader-box">
+
+  <div class="loader-wrapper">
+    <img src="leftbird.png" alt="left" class="bird left-bird">
+    <div class="loader-bar"></div>
+    <img src="rightbird.png" alt="right" class="bird right-bird">
+	  
+  </div>
+  <p>Loading World of Draenor...</p>
+</div>
+	<div class="logo-container"></div>
+		<div class="loader-wodlogo"></div>
+	<div class="loader-footer"></div>
+</div>
+<!-- ASIDE (jobb oldali panel) -->
+<aside class="wow-aside">
+  <ul>
+    <li>
+      <button class="aside-btn" data-modal="gear">
+        <div class="circle-icon">
+          <img src="gear.png" alt="Gear Guide">
+        </div>
+        <span>Gear Guide</span>
+      </button>
+    </li>
+    <li>
+      <button class="aside-btn" data-modal="professions">
+        <div class="circle-icon">
+          <img src="profession.png" alt="Professions">
+        </div>
+        <span>Professions</span>
+      </button>
+    </li>
+    <li>
+      <button class="aside-btn" data-modal="gold">
+        <div class="circle-icon">
+          <img src="gold.png" alt="Gold Making">
+        </div>
+        <span>Gold Making</span>
+      </button>
+    </li>
+    <li>
+      <button class="aside-btn" data-modal="garrison">
+        <div class="circle-icon">
+          <img src="garrison.png" alt="Garrison">
+        </div>
+        <span>Garrison Guide</span>
+      </button>
+    </li>
+    <li>
+      <button class="aside-btn" data-modal="patch">
+        <div class="circle-icon">
+          <img src="patch.png" alt="Patch Notes">
+        </div>
+        <span>Patch Notes</span>
+      </button>
+    </li>
+	  <li>
+      <button class="aside-btn" data-modal="patch">
+        <div class="circle-icon">
+          <img src="forum.png" alt="Patch Notes">
+        </div>
+        <span>Forum</span>
+      </button>
+    </li>
+	
+  </ul>
+</aside>
+
+<!-- MODALS -->
+<div id="gear" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Gear Guide</h3>
+    <p>Best in Slot listák, raid és dungeon loot táblázatok.</p>
+  </div>
+</div>
+
+<div id="professions" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Professions</h3>
+    <p>Szakmák szintlépése, farm spotok és tippek.</p>
+  </div>
+</div>
+
+<div id="gold" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Gold Making</h3>
+    <p>Auction House stratégiák és farm helyszínek.</p>
+  </div>
+</div>
+
+<div id="garrison" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Garrison Guide</h3>
+    <p>Épületek, mission table és hatékony fejlődés.</p>
+  </div>
+</div>
+
+<div id="patch" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Patch Notes</h3>
+    <p>Friss hírek és update összefoglalók.</p>
+  </div>
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="custom-cursor"></div>
+	<div class="background">
+<div class="gridcontainer-main">
+  <div id="card-instances"><h1>Instances</h1></div>
+  <div id="card-raids"><h1>Raids</h1></div>
+  <div id="card-leveling"><h1>Zones</h1></div>
+  <div id="card-news"><h1>Game Updates</h1></div>
+</div>
+	<div class="gridcontainer-sub"></div>
+		</div>
+	
+<!-- Modal KÜLÖN a body-ban -->
+<div id="instancesModal" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+	  <div class="modal-header">
+    <h3>Instances</h3></div>
+    <!--<table>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Type</th>
+      </tr>
+
+      <tr><td>4</td><td>Upper Blackrock Spire</td><td>35–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>5</td><td>Auchindoun</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>6</td><td>Shadowmoon Burial Grounds</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>7</td><td>The Everbloom</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>8</td><td>Skyreach</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>9</td><td>Bloodmaul Slag Mines</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>10</td><td>Iron Docks</td><td>20–40</td><td>Dungeon</td><td class="skull">☠️</td></tr>
+      <tr><td>11</td><td>Grimrail Depot</td><td>20–40</td><td>Dungeon</td><td class="skull"></td></tr>
+      <tr><td>12</td><td>Edge of Reality</td><td>40</td><td>Scenario</td><td class="skull"></td></tr>
+      <tr><td>13</td><td>The Coliseum</td><td>40</td><td>Scenario</td><td class="skull"></td></tr>
+      <tr><td>14</td><td>The Battle of Thunder Pass</td><td>10–40</td><td>Scenario</td><td class="skull"></td></tr>
+      <tr><td>15</td><td>The Burning Nether</td><td>10–40</td><td>Scenario</td><td class="skull"></td></tr>
+      <tr><td>16</td><td>The Purge of Gnomeregan</td><td>10–40</td><td>Scenario</td><td class="skull"></td></tr>
+		
+      <!-- ... a többi sor ... 
+    </table>-->
+	  <table id="instancesTable">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Type</th>
+  </tr>
+  
+  <tr class="instance">
+    <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+    <td>Upper Blackrock Spire</td>
+    <td>35–40</td>
+    <td>Dungeon</td>
+    <td>☠️</td>
+  </tr>
+  <tr class="boss-row hidden upper-blackrock">
+    <td colspan="5">
+      <table>
+		          <tr><th></th></tr>
+        <tr><td><a href="omokk.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Highlord Omokk</a></td></tr>
+		  <tr><td><a href="voshgajin.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Shadow Hunter Vosh'gajin</a></td></tr>
+        <tr><td><a href="voone.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">War Master Voone</a></td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr class="instance" id="instance">
+     <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+    <td>Auchindoun</td>
+    <td>20–40</td>
+    <td>Dungeon</td>
+    <td>☠️</td>
+  </tr>
+  <tr class="boss-row hidden auchindon">
+    <td colspan="5">
+      <table>
+        <tr><th></th></tr>
+        <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Ahune</a></td></tr>
+        <tr><td><a href="maladaar.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Exarch Maladaar</a></td></tr>
+        <tr><td><a href="moonfall.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Taladris Moonfall</a></td></tr>
+      </table>
+    </td>
+  </tr>
+		  
+		  <tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>Shadowmoon Burial Grounds</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull">☠️</td>
+</tr>
+<tr class="boss-row hidden shadowmoon">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Sadala Bloodfury</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Nhallish</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Bonemaw</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Ner'zhul</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>The Everbloom</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull">☠️</td>
+</tr>
+<tr class="boss-row hidden everbloom">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+    <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Witherbark</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Ancient Protectors</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Archmage Sol</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Xeri'tac</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Yalnu</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>Skyreach</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull">☠️</td>
+</tr>
+<tr class="boss-row hidden skyreach">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Ranjit</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Araknath</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Rukhran</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">High Sage Viryx</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>Bloodmaul Slag Mines</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull">☠️</td>
+</tr>
+<tr class="boss-row hidden bloodmaul">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Magmolatus</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Slave Watcher Crushto</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Roltall</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Gug'rokk</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>Iron Docks</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull">☠️</td>
+</tr>
+<tr class="boss-row hidden irondocks">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Fleshrender Nok'gar</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Grimrail Enforcers</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Oshir</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Skulloc</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="wowicon3.PNG" style="width: 25px; height: 25px;"></td>
+  <td>Grimrail Depot</td>
+  <td>20–40</td>
+  <td>Dungeon</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden grimrail">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Rocketspark and Borka</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Naz'grim the Iron Rider</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Skylord Tovra</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+  <td><img src="scenarioicon.png" style="width: 25px; height: 25px;"></td>
+  <td>Edge of Reality</td>
+  <td>40</td>
+  <td>Scenario</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden edge">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Void Lord Krosus</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+  <td><img src="scenarioicon.png" style="width: 25px; height: 25px;"></td>
+  <td>The Coliseum</td>
+  <td>40</td>
+  <td>Scenario</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden colisseum">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Gladiator Gorok</a></td></tr>
+     <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Champion Alor</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+  <td><img src="scenarioicon.png" style="width: 25px; height: 25px;"></td>
+  <td>The Battle of Thunder Pass</td>
+  <td>10–40</td>
+  <td>Scenario</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden thunderpass">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Thunderlord General</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Stormbringer Kor'ush</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+  <td><img src="scenarioicon.png" style="width: 25px; height: 25px;"></td>
+  <td>The Burning Nether</td>
+  <td>10–40</td>
+  <td>Scenario</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Infernal Overlord</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Flamecaller Tash'ir</a></td></tr>
+    </table>
+  </td>
+</tr>
+
+<tr class="instance">
+   <td><img src="scenarioicon.png" style="width: 25px; height: 25px;"></td>
+  <td>The Purge of Gnomeregan</td>
+  <td>10–40</td>
+  <td>Scenario</td>
+  <td class="skull"></td>
+</tr>
+<tr class="boss-row hidden">
+  <td colspan="5">
+    <table>
+      <tr><th></th></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Thermaplugg's Remnants</a></td></tr>
+      <tr><td><a href="ahune.html" class="popup-link"><img src="bossicon.png" style="width: 25px; height: 25px; margin: 5px;">Mechano-Lord Capacitus</a></td></tr>
+    </table>
+  </td>
+</tr>
+</table>
+
+  </div>
+</div>
+	
+	
+	<div id="raidsModal" class="wow-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+	  <div class="modal-header">
+    <h3>Raids</h3>
+		  </div>
+    <table>
+     	 <div class="gridcontainer-raid">
+  <div id="raid-1"><h1>Hellfire Citadel</h1></div>
+  <div id="raid-2"><h1>Blackrock Foundry</h1></div>
+  <div id="raid-3"><h1>Highmaul</h1></div>
+	  </div>
+	    </table>
+  </div>
+</div>
+	
+	<!-- Modal felugró -->
+<div id="popupModal">
+  <iframe id="popupFrame" src="" style="width:100%; height:100%; border:none;"></iframe>
+  <button onclick="closePopup()" style="position:absolute; top:5px; right:5px;">×</button>
+</div>
+
+<!-- Háttér árnyék -->
+<div id="popupOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.5); z-index:999;" onclick="closePopup()"></div>
+
+<button class="button-discover" id="discoverBtn">Discover Now</button>
+
+<!-- Modal ablak -->
+<div id="discoverModal" class="wow-modal">
+  <div class="modal-content video-modal">
+    <span class="close">&times;</span>
+    <div class="video-container">
+      <iframe id="wowTrailer" width="560" height="315" 
+        src="https://www.youtube.com/embed/TLzhlsEFcVQ?enablejsapi=1" 
+        title="Warlords of Draenor Trailer"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+	<div id="levelingModal" class="wow-modal">
+	<div class="modal-header">
+			<h3>Zones</h3>
+		</div>
+  <div class="modal-content">
+    <span class="close">&times;</span>
+	
+	<div class="map-container">
+  <!-- Térkép háttérképe -->
+ <svg viewBox="0 0 1000 600" width="100%" height="auto">
+  <image href="map.png"></image>
+  <rect x="100" y="120" width="150" height="150" fill="transparent"  stroke-width="2"/>
+</svg>
+  <!-- Zónák (példa koordinátákkal) -->
+  <div class="zone" data-name="Frostfire Ridge" style="top:20%; left:25%; width:20%; height:15%;"></div>
+  <div class="zone" data-name="Gorgrond" style="top:10%; left:45%; width:15%; height:25%;"></div>
+  <div class="zone" data-name="Talador" style="top:50%; left:30%; width:20%; height:15%;"></div>
+  <div class="zone" data-name="Spires of Arak" style="top:65%; left:40%; width:15%; height:20%;"></div>
+  <div class="zone" data-name="Nagrand" style="top:35%; left:18%; width:20%; height:25%;"></div>
+  <div class="zone" data-name="Shadowmoon Valley" style="top:55%; left:52%; width:15%; height:25%;"></div>
+  <div class="zone" data-name="Tanaan Jungle" style="top:32%; left:46%; width:20%; height:25%;"></div>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip"></div>
+</div>
+	      </div>
+  </div>
+
+	
+	<div id="google_translate_element" style="goog-te-combo"></div>
+
+	<footer class="footer">Webdesign by <a href="https://dzsozeph.github.io/portfolio-minimal" target="_blank" class="social-icon">Jonas Lab</a>
+		Copyright 2025 (R)
+	</footer>
+</body>
+	<script>
+		
+		
+let progress = 0;
+let bar = document.querySelector(".loader-bar");
+
+let interval = setInterval(() => {
+  if (progress >= 100) {
+    clearInterval(interval);
+    document.getElementById("preloader").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("preloader").style.display = "none";
+    }, 1000);
+  } else {
+    progress += 2; // gyorsaság
+    bar.style.width = progress + "%";
+  }
+}, 100);
+		
+		
+	const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+		
+		
+		// Modal nyitás gombbal
+document.querySelectorAll(".aside-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const modalId = btn.getAttribute("data-modal");
+    document.getElementById(modalId).style.display = "block";
+  });
+});
+
+// Modal zárás (X gombbal)
+document.querySelectorAll(".close").forEach(closeBtn => {
+  closeBtn.addEventListener("click", () => {
+    closeBtn.closest(".wow-modal").style.display = "none";
+  });
+});
+
+// Modal zárás háttérre kattintva
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("wow-modal")) {
+    e.target.style.display = "none";
+  }
+});
+		
+		const discoverBtn = document.getElementById("discoverBtn");
+const discoverModal = document.getElementById("discoverModal");
+const closeBtn = discoverModal.querySelector(".close");
+const trailer = document.getElementById("wowTrailer");
+
+// Modal nyitás
+discoverBtn.addEventListener("click", () => {
+  discoverModal.style.display = "block";
+});
+
+// Modal zárás (X gomb)
+closeBtn.addEventListener("click", () => {
+  discoverModal.style.display = "none";
+  stopVideo();
+});
+
+// Modal zárás háttérre kattintva
+window.addEventListener("click", (e) => {
+  if (e.target === discoverModal) {
+    discoverModal.style.display = "none";
+    stopVideo();
+  }
+});
+
+// Videó megállítása modal bezáráskor
+function stopVideo() {
+  trailer.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+}
+		
+// Kártya és a benne lévő modal kiválasztása
+const card = document.getElementById("card-instances");
+const modal = document.getElementById("instancesModal"); // <-- Itt javítva
+		
+
+// Kártyára kattintva modal megjelenítése
+card.addEventListener("click", (e) => {
+  e.stopPropagation(); // hogy ne záródjon rögtön, ha modal belsejére kattintunk
+  modal.style.display = "block";
+});
+
+// Modalra kattintva bárhol → bezáródik
+modal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Ha a táblázatra kattintanak, ne záródjon a modal
+modal.querySelector("table").addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+		// Raids kártya és modal
+const raidsCard = document.getElementById("card-raids");
+const raidsModal = document.getElementById("raidsModal");
+
+// Kártyára kattintva modal megjelenítése
+raidsCard.addEventListener("click", (e) => {
+  e.stopPropagation();
+  raidsModal.style.display = "block";
+});
+
+// Modalra kattintva bárhol → bezáródik
+raidsModal.addEventListener("click", () => {
+  raidsModal.style.display = "none";
+});
+
+// Ha a táblázatra kattintanak, ne záródjon a modal
+raidsModal.querySelector("table").addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+/*-----------------------------------------------------------------------------------MAP---------------------------------------------------*/
+const tooltip = document.getElementById('tooltip');
+  const levelingCard = document.getElementById("card-leveling");
+const levelingModal = document.getElementById("levelingModal");
+const levelingClose = levelingModal.querySelector(".close");
+
+// Kártyára kattintva modal megnyitása
+levelingCard.addEventListener("click", (e) => {
+  e.stopPropagation();
+  levelingModal.style.display = "block";
+});
+
+// Modal bezárás X gombbal
+levelingClose.addEventListener("click", () => {
+  levelingModal.style.display = "none";
+});
+
+// Modal bezárás háttérre kattintva
+window.addEventListener("click", (e) => {
+  if (e.target === levelingModal) {
+    levelingModal.style.display = "none";
+  }
+});
+const zones = document.querySelectorAll('.zone');
+
+zones.forEach(zone => {
+  zone.addEventListener('mouseenter', (e) => {
+    const name = zone.dataset.name;
+    tooltip.textContent = name;
+    tooltip.classList.add('show');
+    // Tooltip pozíció a kurzorhoz
+    const rect = zone.getBoundingClientRect();
+  });
+
+  zone.addEventListener('mouseleave', () => {
+    tooltip.classList.remove('show');
+  });
+});
+		document.querySelectorAll(".instance").forEach(row => {
+  row.addEventListener("click", () => {
+    const bossRow = row.nextElementSibling;
+    bossRow.classList.toggle("hidden"); // lenyitás / összecsukás
+  });
+});
+		
+		
+document.querySelectorAll('.popup-link').forEach(link => {
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    const url = this.getAttribute('href');
+    document.getElementById('popupFrame').src = url;
+    document.getElementById('popupModal').style.display = 'block';
+    document.getElementById('popupOverlay').style.display = 'block';
+  });
+});
+
+// Bezárás
+function closePopup(){
+  document.getElementById('popupModal').style.display = 'none';
+  document.getElementById('popupOverlay').style.display = 'none';
+  document.getElementById('popupFrame').src = '';
+}
+		
+		
+		
+		function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'hu'}, 'google_translate_element');
+}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</html>

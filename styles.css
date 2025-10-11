@@ -1,0 +1,852 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin: 0;
+	padding: 0;
+	cursor: none;
+	
+
+}
+
+.im-fell-great-primer-sc-regular {
+  font-family: "IM Fell Great Primer SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body, html{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	cursor: none;
+
+}
+
+h3{
+	font-family: "IM Fell Great Primer SC", serif;
+	font-size: 30px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Firefox */
+  ::-webkit-scrollbar {
+    width: 15px; /* Szélesség (függőleges sávnál) */
+    height: 12px; /* Magasság (vízszintes sávnál) */
+}
+
+/* A görgetősáv fogantyúja */
+::-webkit-scrollbar-thumb {
+background: #ed6700;
+background: radial-gradient(circle, rgba(237, 103, 0, 1) 0%, rgba(0, 0, 0, 1) 66%, rgba(0, 0, 0, 1) 87%);
+    border-radius: 6px; /* Lekerekített sarkok */
+    border: 3px solid transparent; /* Átlátszó keret a fogantyú körül */
+    background-clip: content-box; /* Belülre helyezi a háttértartalmat */
+}
+
+/* A görgetősáv háttérsávja */
+::-webkit-scrollbar-track {
+    background-color: black;/* Háttér szín */
+    border-radius: 6px; /* Lekerekített sarkok */
+}
+
+/* Ha az egérmutató a görgetősáv fogantyúján van */
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+}
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+
+  
+}
+
+.logo-container{
+	top:0;
+	position: absolute;
+	width: 100vw;
+	height: 15vh;
+	background: #000000;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 90%, rgba(69, 69, 69, 1) 100%);
+	
+}
+
+.loader-wodlogo{
+	position: absolute;
+	width: 20vw;
+	height: 20vh;
+	background-image: url("wodlogo.png");
+	background-size: cover;
+	background-position: center;
+	top: 5vh;
+	
+}
+.map-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('map.PNG') center/cover no-repeat;
+  opacity: 0.2; /* halvány */
+  animation: moveMap 30s linear infinite alternate;
+}
+
+@keyframes moveMap {
+  from { background-position: center top; }
+  to   { background-position: center bottom; }
+}
+
+/* Loader box */
+.loader-box {
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  max-width: 600px;
+  height: 10vh;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+
+.loader-footer{
+	position: absolute;
+	width: 100vw;
+	height: 5vh;
+	bottom: 0;
+	left: 0;
+	background: #000000;
+background: linear-gradient(0deg, rgba(0, 0, 0, 1) 67%, rgba(69, 69, 69, 1) 100%);
+	
+}
+
+
+/* A bar + griff tartó */
+.loader-wrapper {
+  position: relative;
+  width: 100%;
+  height: 20px; /* ugyanakkora, mint a bar */
+  border: 1px solid grey;
+  
+
+}
+
+/* Loading bar */
+.loader-bar {
+  height: 100%;
+  width: 0;
+  margin: 0 auto;
+background: #38e06d;
+background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1) 100%);
+  transition: width 0.3s;
+
+ 
+}
+
+/* Madarak fixen a szélen */
+.bird {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+}
+
+/* Bal oldali */
+.left-bird {
+  left: -50px; /* mennyire lógjon ki / rá a bar-ra */
+}
+
+/* Jobb oldali */
+.right-bird {
+  right: -50px;
+}
+
+/* Szöveg */
+.loader-box p {
+  margin-top: 8px;
+  font-family: "IM Fell Great Primer SC", serif;
+  font-size: 18px;
+  color: #d9c27e;
+  text-shadow: 1px 1px 2px #000;
+}
+
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: url("wowcursor.png") no-repeat center center;
+  background-size: contain;
+  pointer-events: none; /* Ne akadályozza a kattintást */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.background
+{
+	width: 100vw;
+	height: 100vh;
+	background-image: url("background.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+
+.gridcontainer-main {
+  position: absolute;
+  margin: 0 auto;
+  width: 100vw;
+  height: 30vh;
+  display: grid;
+  grid-template-columns: repeat(4, auto); /* kártyák szélessége alapján */
+  z-index: 2;
+  top: 73vh;
+  justify-content: center; /* középre rakja */
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px; /* távolság a kártyák között */
+  pointer-events: auto;
+  
+}
+
+.gridcontainer-main h1{
+  color: #F8D016;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px white;
+  font-weight: 200;
+  background-color: rgba(0,0,0,0.6);
+	font-family: "IM Fell Great Primer SC", serif;
+	
+}
+
+
+#card-instances:hover,
+#card-leveling:hover,
+#card-raids:hover,
+#card-news:hover{
+	transform: scale(1.050);
+	transition: all 0.5s ease;
+	box-shadow: 0 0 5px #F8D016;
+	
+}
+
+#card-instances:hover h1,
+#card-leveling:hover h1,
+#card-raids:hover h1,
+#card-news:hover h1 {
+    color: white;
+    transition: color 0.5s ease; /* Szép átmenet a színváltozásnak */
+}
+
+#card-instances{
+	width: 15vw;
+	height: 15vh;
+	background-color: orange;
+	box-shadow: 0 0 10px white;
+	background-image: url("background-instances.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+#card-raids{
+	width: 15vw;
+	height: 15vh;
+	background-color: orange;
+	box-shadow: 0 0 10px white;
+	background-image: url("background-raids.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+#card-leveling{
+	width: 15vw;
+	height: 15vh;
+	background-image: url("background-leveling.jpg");
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 10px white;
+}
+#card-news{
+	width: 15vw;
+	height: 15vh;
+	background-image: url("spells.webp");
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 10px white;
+}
+
+
+.gridcontainer-sub{
+	width: 15vw;
+	height: 15vh;
+	background-color: blue;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 4 oszlop */
+	border: solid 1px white;
+	opacity: 0;	
+
+}
+/*--------------------------------------------------------------VIDEO---------------------------------------------------------------------------------------*/
+.button-discover{
+    position: absolute;
+	width:10vw;
+	height: 5vh;
+	color: white;
+	top: 35vh;
+	font-size: 22px;
+    right: 22vw;
+	background-color: rgba(151,47,49,0.9);
+	cursor: none;
+	border: 1px solid grey;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	 font-family: "IM Fell Great Primer SC", serif;
+	
+}
+
+
+.button-discover:hover{
+	box-shadow: 0 0 5px #F8D016;
+	border: none;
+	color: #F8D016;
+}
+
+.modal-content.video-modal {
+  background: transparent;
+  margin: 5% auto;
+  padding: 0;
+  border: none;
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video responsive wrapper */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 arány */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,200,100,0.8);
+}
+
+/* Close gomb */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #ff9933;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+
+.wow-aside {
+  position: absolute;
+  top: 80px;         /* fixáld, hogy ne másszon rá a headerre */
+  right: -5px;          /* mindig jobb oldalra kerüljön */
+  min-width: 10vw;   /* ne vágja le a tartalmat */
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 2;     /* hogy mindig a tetején legyen */
+  cursor: none !important;
+  background-image: url("border.png");
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #C75412;
+
+}
+.wow-aside:hover{
+ box-shadow: 0 0 3px yellow;
+}
+.wow-aside li{
+ list-style: none;
+
+	 
+	}
+
+.wow-aside img{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	border-radius: 50%;
+}
+
+
+.wow-modal {
+  display: none; /* rejtve alapból */
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0,0,0,0.85);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Modal belső doboz */
+.modal-content {
+  background: #1a1a1a;
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid #a67c52;
+  width: 80%;
+  width: 70vw;
+  border-radius: 1px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,200,100,0.4);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header{
+	position: absolute;
+	display: flex;
+	background-image: url("modal-header2.png");
+	background-size: cover;
+	width: 20vw;
+	height: 10vh;
+	top: 5vh;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0 auto;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	color: black;
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* Close gomb */
+.close {
+  color: #ff9933;
+  float: right;
+  font-size: 40px;
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px
+}
+
+.close:hover {
+  color: rgba(183,37,40,1.00);
+  transition: ease 0.5s;
+
+}
+
+/* Gomb stílus az aside-ban */
+.aside-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: transform 0.2s ease, color 0.2s ease;
+  font-family: "IM Fell Great Primer SC", serif;
+  font-size:15px;
+}
+
+.aside-btn:hover {
+  color: #ff9933;
+  transform: scale(1.05);
+
+	
+}
+
+.footer{
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	margin: 0 auto;
+	text-align: center;
+	background-color: rgba(0,0,0,1.00);
+	z-index: 10;
+	cursor: pointer;
+	text-decoration: none;
+	color: rgba(151,98,21,1.00);
+	font-size: 15px;
+	padding: 10px;
+	font-family: "IM Fell Great Primer SC", serif;
+}
+
+.footer a{
+	font-weight: 700;
+	color: #912F30;         /* átveszi a footer színét */
+	padding: 5px;
+}
+
+
+
+/*------------------------------------------------------------------------------LISTA CLASSOK-----------------------------------------------------------*/
+
+    h1 {
+   
+      text-align: center;
+    }
+    table {
+	
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: transparent;
+	  cursor: pointer;
+	  font-family: "IM Fell Great Primer SC", serif;
+	  font-size: 20px;
+	
+	  
+	  
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+			text-align: center;
+		justify-content: center;
+
+	
+    }
+
+    th {
+      background-color: transparent;
+         color: rgba(187,82,1,1.00);
+			
+    }
+
+td{
+		border: 1px solid black;
+}
+    .skull {
+      color: red;
+      font-weight: bold;
+    }
+
+table a{
+	text-align: center;
+	justify-content: center;
+	margin: 0 auto;
+	
+}
+
+.map-container {
+    position: relative;
+	width: 70vw!important;
+	height: 60vh;
+	z-index: 9999;
+  }
+
+
+  .map-image {
+    width: 100%;
+    display: block;
+	height: auto; /* megtartja az arányokat */
+	  
+  }
+
+  .zone {
+    position: absolute;
+
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+
+  .tooltip {
+	  top: 0;
+	  left: 0;
+    position: absolute;
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .tooltip.show {
+    opacity: 1;
+  }
+
+
+.hidden {
+  display: none;
+}
+
+.instance {
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+}
+
+.instance:hover {
+  background-color: #333;
+}
+
+.boss-row table {
+  width: 100%;
+  border-collapse: collapse;
+  line-height: 1;        /* szorosan egymáshoz húzza a sort */
+
+
+}
+
+.boss-row th, .boss-row td {
+
+  text-align: left;
+
+
+}
+
+.boss-row a {
+  color: inherit;       /* örökölje a szöveg színét (pl. fehér) */
+  text-decoration: none; /* aláhúzás eltüntetése */
+}
+
+.boss-row table td {
+  padding: 5px 5px;       /* méretezés */
+background: #000000;
+background: linear-gradient(119deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 33%);
+transition: background-color 0.3s ease;
+	border-radius: 5px;
+}
+
+.boss-row table td:hover {
+  background-color: rgba(255,255,255,0.20);
+}
+
+
+.boss-row.upper-blackrock {
+  background-image: url('https://warcraft.wiki.gg/images/thumb/Blackrock_Spire_loading_screen.jpg/640px-Blackrock_Spire_loading_screen.jpg?b057a5');
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boss-row.auchindon {
+  background-image: url('https://cdna.artstation.com/p/assets/images/images/003/367/804/large/jessica-clarke-loadscreenauchindoun.jpg?1472935480');
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+.boss-row.shadowmoon {
+  background-image: url('https://warcraft.wiki.gg/images/Shadowmoon_Burial_Grounds_loading_screen.jpg?70e6a8=&format=original');
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boss-row.skyreach {
+ background-image: url("skyreach.webp");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boss-row.everbloom{
+ background-image: url("everbloom.webp");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boss-row.bloodmaul{
+ background-image: url("bloodmaul2.jpg");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.boss-row.grimrail{
+ background-image: url("grimrail.jpg");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.boss-row.irondocks{
+ background-image: url("irondocks.jpg");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.edge{
+  background-image: url("edgeofreality.webp");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.colisseum{
+  background-image: url("colisseum.jpg");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.thunderpass{
+	 background-image: url("thunderpass.jpg");
+  background-size: cover; /* vagy contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#google_translate_element {
+  position: fixed;
+  top: 10px;
+  left: 2vw;
+  z-index: 9999;
+  display: inline-block;
+  font-family: "Inter", system-ui, sans-serif;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 2px 6px;
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0 4px 12px rgba(16,24,40,0.06);
+  max-width: 20px;
+}
+
+
+.goog-te-combo {
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: transparent;
+  color: rgba(177,105,24,1.00);
+  outline: none;
+  appearance: none; /* natív nyíl eltávolításához */
+  font-family: "IM Fell Great Primer SC", serif;
+  font-weight: 700;
+}
+
+#popupModal {
+  display: none;
+  width: 95vw;    /* szélesség */
+  height: 95vh;   /* magasság */
+  max-width: 90%;  /* mobilon ne legyen túl nagy */
+  max-height: 90%; /* mobilon ne legyen túl magas */
+  background: #fff;
+  border: 2px solid #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: 0 0 15px rgba(152,80,25,1.00);
+	
+}
+
+.popup-link {
+  display: inline-flex;       /* vagy flex */
+  align-items: center;        /* függőlegesen középre igazítja */
+  gap: 8px;                   /* kép és szöveg közötti távolság */
+  text-decoration: none;      /* ha kell */
+  color: inherit;             /* ha kell */
+}
+.popup-link img {
+  width: 25px;
+  height: 25px;
+  /* nem kell margin, gap elég */
+}
+
+
+.gridcontainer-raid{
+  margin: 0 auto;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(3, auto); /* kártyák szélessége alapján */
+  z-index: 2;
+  top: 20vh;
+  justify-content: center; /* középre rakja */
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px; /* távolság a kártyák között */
+  pointer-events: auto;
+  font-family: "IM Fell Great Primer SC", serif;
+  padding: 5rem;
+  
+}
+
+#raid-1{
+	width: 20vw;
+	height: 25vh;
+	background-color: orange;
+	background-image: url("hellfire.webp");
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 0 2px #A67C52;
+}
+
+#raid-2{
+	width: 20vw;
+	height: 25vh;
+	background-color: orange;
+	background-image: url("foundry.jpg");
+	background-size: 150%;
+	background-position: center 70%;
+	box-shadow: 0 0 2px #A67C52;
+}
+
+#raid-3{
+	width: 20vw;
+	height:25vh;
+	background-image: url("highmaul.jpg");
+	background-size: 150%;
+	background-position: center 70%;
+	box-shadow: 0 0 2px #A67C52;
+}
+
+

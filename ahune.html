@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahune!Boss Guide</title>
+  <style>
+    :root{
+      --bg:#0f1113; --panel:#121416; --muted:#9aa4ad; --accent:#c99a2a; --card:#17191b; --glass:rgba(255,255,255,0.03);
+      --success:#2ecc71; --danger:#e74c3c; --gap:18px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{
+  height: auto; /* vagy töröld teljesen */
+  min-height: 100vh; /* ez biztosítja, hogy legalább képernyőmagas legyen */
+	  }
+    body{
+		
+        margin:0;
+		background:linear-gradient(180deg,#070809 0%, #0b0e10 60%);
+		color:#e6edf3;
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+		overflow: auto;
+    }
+	  
+	  ::-webkit-scrollbar {
+    width: 15px; /* Szélesség (függőleges sávnál) */
+    height: 12px; /* Magasság (vízszintes sávnál) */
+}
+
+/* A görgetősáv fogantyúja */
+::-webkit-scrollbar-thumb {
+background: #ed6700;
+background: radial-gradient(circle, rgba(237, 103, 0, 1) 0%, rgba(0, 0, 0, 1) 66%, rgba(0, 0, 0, 1) 87%);
+    border-radius: 6px; /* Lekerekített sarkok */
+    border: 3px solid transparent; /* Átlátszó keret a fogantyú körül */
+    background-clip: content-box; /* Belülre helyezi a háttértartalmat */
+}
+
+/* A görgetősáv háttérsávja */
+::-webkit-scrollbar-track {
+    background-color: black;/* Háttér szín */
+    border-radius: 6px; /* Lekerekített sarkok */
+}
+
+/* Ha az egérmutató a görgetősáv fogantyúján van */
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+}
+
+    .container{
+		max-width:1000px;
+		margin:0 auto;
+		display:grid;
+		grid-template-columns:360px 1fr;
+		gap:24px;
+		align-items:start;
+	  
+	  }
+
+    /* Header / Boss Card */
+    .boss-card{
+		background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+		border:1px solid rgba(255,255,255,0.04);
+		padding:18px;
+		border-radius:10px;
+		box-shadow:0 6px 22px rgba(0,0,0,0.6)
+	  }
+    .boss-portrait{
+		height:250px;
+		border-radius:8px;
+		background-image: url("ahune.webp");
+		background-size: cover;
+		background-position: center;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		font-weight:700;
+		font-size:20px;
+		color:var(--accent);
+		box-shadow:inset 0 -12px 50px rgba(0,0,0,0.4)
+	  }
+	  
+	  
+    .boss-title{display:flex;align-items:center;gap:12px;margin-top:12px}
+    .boss-title h1{font-size:20px;margin:0}
+    .meta{color:var(--muted);font-size:13px}
+
+    .info-list{margin-top:14px;display:grid;gap:8px}
+    .info-item{display:flex;justify-content:space-between;color:var(--muted);font-size:14px}
+
+    .abilities{margin-top:18px}
+    .ability{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.02);margin-bottom:8px}
+    .ability h4{margin:0 0 6px 0;font-size:15px;color:var(--accent)}
+    .ability p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Right column */
+    .panel{background:var(--panel);padding:22px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(0,0,0,0.55)}
+    .tabs{display:flex;gap:8px;margin-bottom:18px}
+    .tab{background:var(--glass);padding:8px 12px;border-radius:8px;color:var(--muted);cursor:pointer;font-weight:600;border:1px solid rgba(255,255,255,0.02)}
+    .tab.active{background:linear-gradient(180deg, rgba(201,154,42,0.12), rgba(201,154,42,0.03));color:var(--accent);box-shadow:0 4px 18px rgba(201,154,42,0.06)}
+
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 10px 0;font-size:18px;color:var(--accent)}
+    .section p{color:var(--muted);line-height:1.5;margin:0 0 10px 0}
+
+    .tactics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .tactic{background:linear-gradient(180deg,#0f1213, #0b0d0e);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+    .tactic h3{margin:0 0 6px 0;font-size:14px;color:#ffdca3}
+    .tactic ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+
+    .tag{display:inline-block;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-size:12px;color:var(--muted);margin-right:8px}
+
+    .tl{background:linear-gradient(90deg, rgba(46,204,113,0.05), transparent);border-left:4px solid var(--success);padding:12px;border-radius:6px;color:var(--muted)}
+
+    /* responsiveness */
+    @media (max-width:980px){.container{grid-template-columns:1fr;}}
+    @media (max-width:560px){.tactics-grid{grid-template-columns:1fr} .boss-portrait{height:100px}}
+
+
+    /* tiny interactions */
+    .ability .meta-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .pill{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px}
+	  
+	  .video-container{
+		  position: absolute;
+		  bottom: 0;
+		  border: 0.5px solid orange;
+		  padding: 20px;
+		  background-color: #262626
+	  }
+	  
+	  .bird {
+  position: absolute;
+  transform: translateY(-50%);
+  height: auto;
+  background: transparent;
+}
+
+/* Bal oldali */
+.left-bird {
+  top: 0;
+  left: 5px; /* mennyire lógjon ki / rá a bar-ra */
+
+}
+
+/* Jobb oldali */
+.right-bird {
+	 top: 0;
+  right: 5px;
+
+}
+	  
+/* A bar + griff tartó */
+.loader-wrapper {
+  position: absolute;
+  width: 100%;
+  
+
+}
+	  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT: Boss card -->
+    <aside class="boss-card">
+      <div class="boss-portrait"></div>
+      <div class="boss-title">
+        <div>
+          <h1>Kargath Bladefist</h1>
+          <div class="meta">Highmaul — Raid Boss</div>
+        </div>
+        <div style="margin-left:auto;text-align:right">
+          <div class="tag">Flex / Normal / Heroic</div>
+          <div style="height:6px"></div>
+          <div class="tag">Raid size: 20–30</div>
+        </div>
+      </div>
+
+      <div class="info-list">
+        <div class="info-item"><span>Loot (approx.)</span><span class="meta">665–691 ilvl</span></div>
+        <div class="info-item"><span>Location</span><span class="meta">Highmaul, Nagrand</span></div>
+        <div class="info-item"><span>Recommended</span><span class="meta">Spread, pillar usage, tank swaps</span></div>
+      </div>
+
+      <div class="abilities">
+        <div class="ability">
+          <h4>Impale</h4>
+          <p>Erős tank-target támadás — tank csere szükséges az ütés után.</p>
+          <div class="meta-row"><span class="pill">Tank</span><span class="pill">Cooldown</span></div>
+        </div>
+
+        <div class="ability">
+          <h4>Blade Dance</h4>
+          <p>Forgó támadás több célponttal — a raidnek szét kell terülni a kár minimalizálása érdekében.</p>
+          <div class="meta-row"><span class="pill">AOE</span><span class="pill">Spread</span></div>
+        </div>
+
+        <div class="ability">
+          <h4>Berserker Rush</h4>
+          <p>Kargath kiválaszt egy játékost és üldözi — a célpontnak oszlophoz kell futnia (Fire Pillar) a megállításhoz.</p>
+          <div class="meta-row"><span class="pill">Movement</span><span class="pill">Mechanic</span></div>
+        </div>
+
+        <div class="ability">
+          <h4>Chain Hurl</h4>
+          <p>Felkap néhány játékost és a közönség közé hajítja — kijelölt csapat kell a platformra a Mythic-en.</p>
+          <div class="meta-row"><span class="pill">Mythic</span><span class="pill">Platform</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Content panel -->
+    <main class="panel">
+      <div class="tabs">
+        <div class="tab active" data-tab="overview">Áttekintés</div>
+        <div class="tab" data-tab="tactics">Taktika</div>
+        <div class="tab" data-tab="mythic">Mythic</div>
+        <div class="tab" data-tab="tl">TL;DR</div>
+      </div>
+ 
+      <section id="overview" class="section" style="display:block">
+        <h2>Áttekintés</h2>
+        <p>Kargath Bladefist a Highmaul gladiátor arénájának agresszív vezetője. Ezt a guide-ot úgy építettem fel, hogy könnyen átlátható legyen: képességek, pozicionálás, tank / DPS / healer szerepek és Mythic-specifikus feladatok.</p>
+
+        <div style="margin-top:12px">
+          <span class="tag">Tank swap</span>
+          <span class="tag">Spread</span>
+          <span class="tag">Pillar mechanics</span>
+        </div>
+      </section>
+
+      <section id="tactics" class="section" style="display:none">
+        <h2>Taktika (Normal / Heroic)</h2>
+        <p>Alapelvek: tartsd a boss-t az aréna közepén, használd a Fire Pillar-okat a Rush megállítására, és mindig cserélj tankot Impale után.</p>
+
+        <div class="tactics-grid" style="margin-top:12px">
+          <div class="tactic">
+            <h3>Pozicionálás</h3>
+            <ul>
+              <li>Tankok a boss előtt, raid szétszórva körülötte.</li>
+              <li>Healer-ek középen, biztosítva a reach-et mindenkihez.</li>
+              <li>Ne állj oszlopok közvetlen közelébe, ha nem célpont vagy.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>Tank feladatok</h3>
+            <ul>
+              <li>Impale után taunt csere.</li>
+              <li>Ne toljuk a bosst az oszlopok közé - fontos, hogy a Rush célpontja hozzáférjen egy oszlophoz.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>DPS feladatok</h3>
+            <ul>
+              <li>Fókusz: Kargath (kivéve Chain Hurl fázis).</li>
+              <li>Kijelölt játékosok mennek a platformra Mythic-en.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>Healer feladatok</h3>
+            <ul>
+              <li>Raid healek folyamatosan Blade Dance után.</li>
+              <li>Figyeld a Rush célpontját és a tankokat.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="mythic" class="section" style="display:none">
+        <h2>Mythic kiegészítések</h2>
+        <p>Mythic-en a Chain Hurl és az aréna közönsége extra mechanikákat ad hozzá. A felkapott játékosoknak addokat spawnolnak a közönségnél, amiket el kell pusztítani — jelölj ki egy megbízható csapatot erre a feladatra.</p>
+
+        <div style="margin-top:12px">
+          <div class="ability">
+            <h4>Chain Hurl taktika</h4>
+            <p>Mindig ugyanazok a játékosok menjenek fel a platformra (1 healer + 2 DPS ajánlott). Addok prioritása: Iron Bombers → Flame Pillars.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tl" class="section" style="display:none">
+        <h2>Gyors összefoglaló (TL;DR)</h2>
+        <div class="tl">
+          <ul style="margin:0;padding-left:18px">
+            <li>Tank swap Impale után.</li>
+            <li>Berserker Rush - célpont fusson oszlophoz.</li>
+            <li>Raid spread Blade Dance miatt.</li>
+            <li>Mythic: kijelölt csapat a Chain Hurl platformra.</li>
+          </ul>
+        </div>
+      </section>
+ <div class="video-container">
+
+      <iframe id="wowTrailer" width="560" height="315" 
+        src="https://www.youtube.com/embed/dcRv84RSVdg?enablejsapi=1" 
+        title="Warlords of Draenor Trailer"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    </main>
+  </div>
+
+  <script>
+    // simple tabs
+    document.querySelectorAll('.tab').forEach(el=>{
+      el.addEventListener('click',()=>{
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        el.classList.add('active');
+        const tab = el.getAttribute('data-tab');
+        document.querySelectorAll('#overview, #tactics, #mythic, #tl').forEach(s=>s.style.display='none');
+        document.getElementById(tab).style.display='block';
+      })
+    });
+  </script>
+</body>
+</html>

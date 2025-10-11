@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Garrison Guide — Modern WoWHead stílus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1720; --panel:#0b1220; --muted:#9aa7b2; --accent:#7dd3fc; --gold:#f6c85f;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Montserrat,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#051021 0%, #071428 50%, #041018 100%);color:#e6eef6;margin:0;padding:40px}
+    .container{max-width:1100px;margin:0 auto}
+
+    header.site-header{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+    .logo{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,#082033,#12304a);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(2,10,20,0.6);border:1px solid rgba(255,255,255,0.04)}
+    .logo img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .title{line-height:1}
+    .title h1{font-family:'Roboto Slab',serif;margin:0;font-size:22px}
+    .title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-bottom:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(2,6,12,0.6)}
+
+    .guide-intro h2{margin:0 0 8px;font-size:18px}
+    .guide-intro p{color:var(--muted);margin:0 0 12px}
+
+    .stats{display:flex;gap:10px}
+    .stat{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    .stat strong{color:var(--gold)}
+
+    /* Sidebar */
+    .sidebar .preview{height:160px;border-radius:10px;overflow:hidden;margin-bottom:12px}
+    .preview img{width:100%;height:100%;object-fit:cover;display:block}
+    .sidebar .meta{display:flex;flex-direction:column;gap:8px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(125,211,252,0.08);color:var(--accent);font-weight:600;font-size:12px}
+
+    /* Buildings grid */
+    .buildings{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+    .building{display:flex;gap:12px;align-items:flex-start}
+    .building .icon{width:64px;height:64px;border-radius:10px;flex:0 0 64px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .building .icon img{width:100%;height:100%;object-fit:cover}
+    .building h3{margin:0;font-size:15px}
+    .building p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .building .badge{margin-left:auto;background:rgba(246,200,95,0.08);color:var(--gold);padding:6px 8px;border-radius:8px;font-weight:700}
+
+    /* Tips */
+    .tips{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+    .tip{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .tip h4{margin:0 0 6px;font-size:14px}
+    .tip p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Tooltip / item box */
+    .item-box{display:flex;gap:10px;align-items:center;padding:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .item-box img{width:48px;height:48px;border-radius:8px}
+    .item-box .meta{font-size:13px}
+    .item-box .meta strong{display:block}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:880px){.hero{grid-template-columns:1fr}.tips{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="logo">
+        <!-- ikon: cseréld le saját garrison vagy crest képre -->
+        <img src="https://via.placeholder.com/64x64.png?text=G" alt="garrison icon">
+      </div>
+      <div class="title">
+        <h1>Garrison Guide — Modern, WoWHead-stílus</h1>
+        <p>Teljes leírás: épületek, prioritások, tippek és képek a sikeres bázisért</p>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card guide-intro">
+        <h2>Mi az a Garrison?</h2>
+        <p>A Garrison a saját bázisod, ahol épületeket emelsz, küldetéseket küldesz, és karaktered támogatását szervezed. Ez a gyors útmutató végigvezet a legfontosabb épületeken, priorizáláson és hasznos trükkökön.</p>
+
+        <div class="stats" style="margin-top:14px">
+          <div class="stat"><strong>Level cap:</strong> 3 (alap) <span style="opacity:.7">•</span></div>
+          <div class="stat"><strong>Mesterfoglalás:</strong> Épületek max szintje: 3</div>
+          <div class="stat"><strong>Munkaerő:</strong> Followers &amp; work orders</div>
+        </div>
+
+        <h3 style="margin-top:16px">Gyors prioritások</h3>
+        <ol style="color:var(--muted);padding-left:18px;margin:8px 0 0">
+          <li>Gazdasági épületek (Gold/Resources)</li>
+          <li>Mission table és Followers fejlesztése</li>
+          <li>Crafting épületek a ritka felszerelésekért</li>
+          <li>Talix- és reagent források: napi work order</li>
+        </ol>
+
+        <div class="buildings">
+          <div class="building card">
+            <div class="icon"><img src="https://via.placeholder.com/64?text=Inn" alt="Inn"></div>
+            <div>
+              <h3>Inn (Fogadó)</h3>
+              <p>Followers recruitment és speciális mission unlockok. Érdemes minél hamarabb felhúzni a 2-3. szintre.</p>
+            </div>
+            <div class="badge">Ajánlott</div>
+          </div>
+
+          <div class="building card">
+            <div class="icon"><img src="https://via.placeholder.com/64?text=Barn" alt="Barn"></div>
+            <div>
+              <h3>War Mill / Barn</h3>
+              <p>Resource boostok és katonai tartozékok. PvP/raiding segédletek miatt fontos.</p>
+            </div>
+            <div class="badge">Hasznos</div>
+          </div>
+
+          <div class="building card">
+            <div class="icon"><img src="https://via.placeholder.com/64?text=Forge" alt="Forge"></div>
+            <div>
+              <h3>Forge (Kovácsműhely)</h3>
+              <p>Crafting, illeve work orderök, melyekkel ritka alkatrészekhez jutsz.</p>
+            </div>
+          </div>
+
+          <div class="building card">
+            <div class="icon"><img src="https://via.placeholder.com/64?text=Trading" alt="Trading Post"></div>
+            <div>
+              <h3>Trading Post</h3>
+              <p>Kereskedelem, napi bevételek és frissülő készletek. Jó passzív income forrás.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px">
+          <h3>Mission table &amp; Followers</h3>
+          <p style="color:var(--muted)">Fejleszd időben a Mission Table-t — a jó follower kompozíció és a speciális trénerek drasztikusan növelik a sikerarányt. Mindig figyelj a follower synergiákra és a speciális küldetésbónuszokra.</p>
+        </div>
+
+        <div class="tips">
+          <div class="tip card">
+            <h4>Tippek az aranyért</h4>
+            <p>Állíts be work orderöket a crafting épületekben; kombináld gazdasági és craft épületeket a maximális profitért.</p>
+          </div>
+          <div class="tip card">
+            <h4>Napi rutin</h4>
+            <p>Mission table ellenőrzés, work order összeszedése, és az épületek gyors javítása napi szinten jelentősen növeli a növekedést.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="card sidebar">
+        <div class="preview"><img src="https://via.placeholder.com/600x360.png?text=Garrison+Preview" alt="garrison preview"></div>
+        <div class="meta">
+          <span class="tag">WoWHead-style guide</span>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:13px;color:var(--muted)">Készítve:</div>
+            <div style="font-weight:700">2025. szeptember</div>
+          </div>
+
+          <div style="margin-top:12px" class="item-box">
+            <img src="https://via.placeholder.com/48?text=F" alt="follower">
+            <div class="meta">
+              <strong>Legjobb follower: Felderítő</strong>
+              <span style="color:var(--muted)">Specializáció: Mission success</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>Épület részletek — gyors lista</h2>
+      <p style="color:var(--muted);margin-top:6px">Lent találsz épületenként rövid leírást, miért fontos és mikor érdemes fejleszteni.</p>
+
+      <div class="buildings" style="margin-top:12px">
+        <div class="building card">
+          <div class="icon"><img src="https://via.placeholder.com/64?text=Ally"></div>
+          <div>
+            <h3>Command Center</h3>
+            <p>Centralizált parancsnokság — növeli a küldetések számát és minőségét.</p>
+          </div>
+        </div>
+
+        <div class="building card">
+          <div class="icon"><img src="https://via.placeholder.com/64?text=Stable"></div>
+          <div>
+            <h3>Stable</h3>
+            <p>Mount és bonuszok. PvP és gyors közlekedés miatt hasznos.</p>
+          </div>
+        </div>
+
+        <div class="building card">
+          <div class="icon"><img src="https://via.placeholder.com/64?text=Guild"></div>
+          <div>
+            <h3>Guild Hall</h3>
+            <p>Guild tech és access; ha guild központú játékos vagy, hamar érdemes felépíteni.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Ez az útmutató sablonként szolgál — cseréld a placeholder képeket saját ikonokra, bővítsd a szöveget speciális stratégiákkal, és szólj, ha szeretnéd, hogy átírjam angolra vagy exportáljam PDF-be.
+    </footer>
+  </div>
+</body>
+</html>
