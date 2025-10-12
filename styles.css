@@ -772,18 +772,19 @@ transition: background-color 0.3s ease;
 }
 
 #popupModal {
+  
   display: none;
-  width: 100vw;    /* szélesség */
-  height: 100vh;   /* magasság */
+  width: 70vw;    /* szélesség */
+  height: 95vh;   /* magasság */
   background: #fff;
-  border: 2px solid #333;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 49%;
+  left: 65%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  box-shadow: 0 0 15px rgba(152,80,25,1.00);
-	
+  border-radius: 50px;
+
+
 }
 
 .popup-link {
