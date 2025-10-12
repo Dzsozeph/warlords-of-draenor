@@ -773,10 +773,8 @@ transition: background-color 0.3s ease;
 
 #popupModal {
   display: none;
-  width: 95vw;    /* szélesség */
-  height: 95vh;   /* magasság */
-  max-width: 90%;  /* mobilon ne legyen túl nagy */
-  max-height: 90%; /* mobilon ne legyen túl magas */
+  width: 100vw;    /* szélesség */
+  height: 100vh;   /* magasság */
   background: #fff;
   border: 2px solid #333;
   position: absolute;

@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orabender Gorashan</title>
+  <style>
+    :root{
+      --bg:#0f1113; --panel:#121416; --muted:#9aa4ad; --accent:#c99a2a; --card:#17191b; --glass:rgba(255,255,255,0.03);
+      --success:#2ecc71; --danger:#e74c3c; --gap:18px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{
+  height: auto; 
+  min-height: 100vh;
+
+	  }
+    body{
+		
+        margin:0;
+		background:linear-gradient(180deg,#070809 0%, #0b0e10 60%);
+		color:#e6edf3;
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+		overflow: auto;
+    }
+	  
+	  ::-webkit-scrollbar {
+    width: 15px; 
+    height: 12px; 
+}
+
+/* A görgetősáv fogantyúja */
+::-webkit-scrollbar-thumb {
+background: #ed6700;
+background: radial-gradient(circle, rgba(237, 103, 0, 1) 0%, rgba(0, 0, 0, 1) 66%, rgba(0, 0, 0, 1) 87%);
+    border-radius: 6px; /* Lekerekített sarkok */
+    border: 3px solid transparent; /* Átlátszó keret a fogantyú körül */
+    background-clip: content-box; /* Belülre helyezi a háttértartalmat */
+}
+
+/* A görgetősáv háttérsávja */
+::-webkit-scrollbar-track {
+    background-color: black;/* Háttér szín */
+    border-radius: 6px; /* Lekerekített sarkok */
+}
+
+/* Ha az egérmutató a görgetősáv fogantyúján van */
+::-webkit-scrollbar-thumb:hover {
+    background-color: grey;
+}
+
+    .container{
+		max-width:1000px;
+		margin:0 auto;
+		display:grid;
+		grid-template-columns:360px 1fr;
+		gap:24px;
+		align-items:start;
+	  
+	  }
+
+    /* Header / Boss Card */
+    .boss-card{
+		background:var(--panel);
+		border:1px solid rgba(255,255,255,0.04);
+		padding:18px;
+		border-radius:10px;
+		box-shadow:0 6px 22px rgba(0,0,0,0.6)
+	  }
+    .boss-portrait{
+		height:250px;
+		border-radius:8px;
+		background-image: url("orabender.PNG");
+		background-size: 60%;
+        background-repeat: no-repeat;
+		background-position: center;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		color:var(--accent);
+		box-shadow:inset 0 -12px 50px rgba(0,0,0,0.4)
+	  }
+	  
+	  
+    .boss-title
+      {
+        display:flex;align-items:center;gap:12px;margin-top:12px
+      }
+    .boss-title h1{
+        font-size:20px;
+        margin:0;
+      }
+    .meta{color:var(--muted);
+        font-size:13px
+      }
+
+    .info-list
+      {
+          margin-top:14px;
+          display:grid;gap:8px
+      }
+    .info-item{
+        display:flex;
+        justify-content:space-between;
+        color:var(--muted);
+        font-size:14px}
+
+    .abilities{
+        margin-top:18px;
+      }
+    .ability{
+        background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+        border-radius:8px;
+        padding:10px;
+        border:1px solid rgba(255,255,255,0.02);
+        margin-bottom:8px}
+    .ability h4{
+        margin:0 0 6px 0;
+        font-size:15px;
+        color:var(--accent)}
+    .ability p{
+        margin:0;
+        color:var(--muted);
+        font-size:13px;
+      margin-left: 60px;
+      
+      
+      }
+
+    /* Right column */
+    .panel{
+        background:var(--panel);
+        padding:22px;border-radius:10px;
+        border:1px solid rgba(255,255,255,0.03);
+        box-shadow:0 6px 30px rgba(0,0,0,0.55)
+      }
+    .tabs{
+        display:flex;
+        gap:8px;
+        margin-bottom:18px}
+    .tab{
+        background:var(--glass);
+        padding:8px 12px;
+        border-radius:8px;
+        color:var(--muted);
+        cursor:pointer;
+        font-weight:600;
+        border:1px solid rgba(255,255,255,0.02)
+      }
+    .tab.active{
+        background:linear-gradient(180deg, rgba(201,154,42,0.12), rgba(201,154,42,0.03));
+        color:var(--accent);
+        box-shadow:0 4px 18px rgba(201,154,42,0.06)}
+
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 10px 0;font-size:18px;color:var(--accent)}
+    .section p{color:var(--muted);line-height:1.5;margin:0 0 10px 0}
+
+    .tactics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .tactic{background:linear-gradient(180deg,#0f1213, #0b0d0e);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+    .tactic h3{margin:0 0 6px 0;font-size:14px;color:#ffdca3}
+    .tactic ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+
+    .tag{display:inline-block;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-size:12px;color:var(--muted);margin-right:8px}
+
+    .tl{background:linear-gradient(90deg, rgba(46,204,113,0.05), transparent);border-left:4px solid var(--success);padding:12px;border-radius:6px;color:var(--muted)}
+
+    /* responsiveness */
+    @media (max-width:980px){.container{grid-template-columns:1fr;
+            .video-container
+            {
+                position: static;
+            }
+        }}
+    @media (max-width:560px){.tactics-grid{grid-template-columns:1fr} .boss-portrait{height:100px}}
+
+
+    /* tiny interactions */
+    .ability .meta-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .pill{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px}
+	  
+	  .video-container{
+		  position: fixed;
+		  bottom: 0;
+          padding: 20px;
+          box-shadow: 0 0 1px grey;
+		  background-color: rgba(15,15,15,1.00);
+	  }
+	  
+      .video-container .child-image {
+  position: absolute;
+  top: -3vh; 
+  left: 50%;
+  transform:translateX(-50%);
+  min-width: 15vw;
+  height: 5vh;
+}
+      
+ 
+.bird {
+  position: absolute;
+  transform: translateY(-50%);
+  height: auto;
+  background: transparent;
+}
+
+/* Bal oldali */
+.left-bird {
+  top: 0;
+  left: 5px; /* mennyire lógjon ki / rá a bar-ra */
+
+}
+
+/* Jobb oldali */
+.right-bird {
+	 top: 0;
+  right: 5px;
+
+}
+	  
+/* A bar + griff tartó */
+.loader-wrapper {
+  position: absolute;
+  width: 100%;
+  
+
+}
+      
+      .spell-icon{
+          width: 40px;
+          height: 40px;
+          position: absolute;
+
+
+}
+      
+      .roles{
+          margin-top: -40px;
+          width: 30px;
+          height: 30px;
+          position: relative;
+          text-align: center;
+          justify-content: center;
+          display: flex;
+          flex-direction: flex-end;
+          margin-left: 10vw;
+          padding: 10px;
+          }
+      
+      .background{
+          width: 100vw;
+          height: 100vh;
+          background-image: url("bg.jpg");
+          background-size: cover;
+          position: absolute;
+          z-index: -1;
+          opacity: 0.070;
+      }
+      
+   .side-navigation {
+  position: fixed;
+  right: 20px;            /* a képernyő jobb szélén */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: rgba(30, 30, 30, 0.8);
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.nav-btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #444, #222);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(145deg, #666, #333);
+  transform: scale(1.1);
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+}
+ 
+  </style>
+</head>
+<body>
+    <aside class="side-navigation">
+  <div class="nav-container">
+    <button class="nav-btn up">▲</button>
+    <button class="nav-btn share">⮌</button>
+    <button class="nav-btn down">▼</button>
+  </div>
+</aside>
+    <div class="background"></div>
+  <div class="container">
+      
+    <!-- LEFT: Boss card -->
+    <aside class="boss-card">
+      <div class="boss-portrait"></div>
+      <div class="boss-title">
+        <div>
+          <h1>Orabender Gor'ashan</h1>
+          <div class="meta"></div>
+        </div>
+        <div style="margin-left:auto;text-align:right">
+          <div class="tag" style="white-space: nowrap;">Normal / <img src="hc.png" style="width:16px; height:16px;">Heroic / <img src="myth.png" style="width: 16px; height: 16px;">Mythic</div>
+          <div style="height:6px"></div>
+          <div class="tag">Raid size: 5</div>
+        </div>
+      </div>
+
+      <div class="info-list">
+        <div class="info-item"><span>Loot</span><span class="meta">447 Itemlevel</span></div>
+      
+      </div>
+
+      <div class="abilities">
+        <div class="ability">
+          
+          <h4>Thunder Cacophony </h4>    <img src="https://wow.zamimg.com/images/wow/icons/large/ability_thunderking_thunderstruck.jpg" class="spell-icon">
+          <p> Empowered with the energy of the Rune Conduits, Gor'ashan unleashes lightning, inflicting 512 Nature damage to nearby enemies.</p>
+            
+          <div class="meta-row"><span class="pill">Tank</span><span class="pill">Cooldown</span></div>
+          
+        </div>
+
+        <div class="ability">
+          <h4>Power Conduit</h4><img src="https://wow.zamimg.com/images/wow/icons/large/spell_mage_temporalshield.jpg" class="spell-icon">
+          <p>Rune Conduits channel power to Gor'ashan, reducing damage taken by 14%, and empowers Gor'ashan to cast Thunder Cacophony.</p>
+          <div class="meta-row"><span class="pill">AOE</span><span class="pill">Spread</span></div>
+        </div>
+
+        <div class="ability">
+          <h4>Blades of Steel </h4><img src="https://wow.zamimg.com/images/wow/icons/large/inv_misc_sawblade_01.jpg" class="spell-icon">
+          <p>Deals 57.500 Physical damage.</p>
+          <div class="meta-row"><span class="pill">Movement</span><span class="pill">Mechanic</span></div>
+        </div>
+
+        <div class="ability">
+          <h4>Shrapnel Nova </h4> <img src="https://wow.zamimg.com/images/wow/icons/large/ability_rogue_fanofknives.jpg" class="spell-icon">
+          <p>Inflicts 25.250 to 57.550 Physical damage to nearby enemies, ignoring armor..</p>
+          <div class="meta-row"><span class="pill">Mythic</span><span class="pill">Platform</span></div>
+        </div>
+            <div class="ability">
+          <h4>Lodestone Spike</h4><img src="https://wow.zamimg.com/images/wow/icons/large/ability_siege_engineer_magnetic_lasso.jpg" class="spell-icon">
+          <p> Magnetically charged spike erupts from the earth, inflicting 1943 Nature damage.</p>
+          <div class="meta-row"><span class="pill">Mythic</span><span class="pill">Platform</span></div>
+        </div>
+            <div class="ability">
+          <h4>Electric Pulse </h4><img src="https://wow.zamimg.com/images/wow/icons/large/spell_ice_rune.jpg" class="spell-icon">
+          <p>A Lightning Orb travels between the Power Runes inflicting 733 Nature damage every 0.8 sec to nearby enemies.</p>
+          <div class="meta-row"><span class="pill">Mythic</span><span class="pill">Platform</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Content panel -->
+    <main class="panel">
+      <div class="tabs">
+        <div class="tab active" data-tab="overview">Overview</div>
+        <div class="tab" data-tab="tactics">Tactics</div>
+        <div class="tab" data-tab="mythic">Mythic <img src="myth.png" style="width: 28px; height: 28px; position: absolute;"></div>
+        <div class="tab" data-tab="tl">Summary</div>
+      </div>
+ 
+      <section id="overview" class="section" style="display:block">
+        <h2>Overview</h2>
+        <p>Gor'ashan stands a top a pedestal, and occasionally calls upon Power Conduits to shield himself during the battle.</p>
+          <br>
+          <p>During the fight, the team must gather on a platform.</p>
+
+<p>Occasionally, Gor'ashan will stop the lightning bolts and use them to strengthen himself.</p>
+
+<p>To prevent the strengthening, players must jump off the platform and deactivate the active energy converters while avoiding the lightning bolts.</p>
+
+        <div style="margin-top:12px">
+          <span class="tag">Tank swap</span>
+          <span class="tag">Spread</span>
+          <span class="tag">Pillar mechanics</span>
+        </div>
+      </section>
+
+      <section id="tactics" class="section" style="display:none">
+        <h2>Tactics (Normal / Heroic)</h2>
+        <p></p>
+
+        <div class="tactics-grid" style="margin-top:12px">
+          <div class="tactic">
+            <h3>Important</h3>
+            <ul> <img src="important.png" class="roles">
+              <li>Open Rune Conduits to disrupt Power Conduit</li>
+              <li>Move out of Shrapnel Nova to decrease damage taken.</li>
+              <li> Rune Conduits channel power to Gor'ashan, reducing damage taken by 14%, and empowers Gor'ashan to cast Thunder Cacophony.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>Tank tasks</h3>
+            <ul><img src="tank.png" class="roles">
+          <li>Move out of Shrapnel Nova to decrease damage taken.</li>
+                <li>Face boss away, swap on Thunder Cacophony or Blades of Steel.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>DPS tasks</h3>
+            <ul><img src="dps.png" class="roles"><li>Open Rune Conduits to disrupt Power Conduit</li>
+              <li>Move out of Shrapnel Nova to decrease damage taken.</li>
+            </ul>
+          </div>
+
+          <div class="tactic">
+            <h3>Healer tasks</h3>
+            <ul><img src="heal.png" class="roles">
+             <li>Watch for heavy AoE bursts; save cooldowns for Thunder Cacophony.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="mythic" class="section" style="display:none; margin:20px;">
+        <h2>On Mythic difficulty, Gor’ashan gains additional mechanics and faster energy cycling:</h2>
+        <li><p>Extra Power Conduits activate simultaneously, requiring coordination to disable them in time.</p></li>
+
+<li><p>Empowered Thunder Cacophony now leaves residual lightning zones on the floor that persist for 10 seconds.</p></li>
+
+<li><p>Static Overload (new ability): Random players are targeted with static charges that explode after 5 seconds, dealing AoE Nature damage. Spread out to avoid chaining.</p></li>
+
+<li><p>The lightning bolts while climbing the platform travel faster and hit harder — use movement abilities (Blink, Roll, etc.) to reach the top efficiently.</p></li>
+
+      </section>
+
+      <section id="tl" class="section" style="display:none">
+    
+        <div class="tl">
+          <ul style="margin:0;padding-left:18px">
+            <li>Before the fight: Climb up, disable all Power Conduits while dodging lightning.</li>
+            <li><img src="tank.png" style="width: 20px; height: 20px; margin: 10px;">Tank: Face boss away, swap on Thunder Cacophony or Blades of Steel.</li>
+            <li><img src="heal.png" style="width: 20px; height: 20px; margin: 10px;">Healer: Watch for heavy AoE bursts; save cooldowns for Thunder Cacophony.</li>
+            <li><img src="dps.png" style="width: 20px; height: 20px; margin: 10px;">DPS: Spread out, interrupt conduit reactivations, move out of lightning zones.</li>
+              <br>
+              <li><img src="myth.png" style="width: 30px; height: 30px;">Mythic: Faster lightning, more conduits, and new AoE debuffs — stay mobile!</li>
+          </ul>
+        </div>
+      </section>
+       
+ <div class="video-container">
+     <div class="header-video">
+         
+  <img src="modal-header2.png" class="child-image">
+         </div>
+      <iframe id="wowTrailer" width="560" height="315" 
+        src="https://www.youtube.com/embed/WkRQi4bbEGY?enablejsapi=1" 
+        title="Warlords of Draenor Trailer"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen> 
+      </iframe>
+    </div>
+    </main>
+  </div>
+
+  <script>
+    // simple tabs
+    document.querySelectorAll('.tab').forEach(el=>{
+      el.addEventListener('click',()=>{
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        el.classList.add('active');
+        const tab = el.getAttribute('data-tab');
+        document.querySelectorAll('#overview, #tactics, #mythic, #tl').forEach(s=>s.style.display='none');
+        document.getElementById(tab).style.display='block';
+      })
+    });
+      
+const upBtn = document.querySelector('.nav-btn.up');
+const downBtn = document.querySelector('.nav-btn.down');
+const shareBtn = document.querySelector('.nav-btn.share');
+
+// Ide írd a megosztandó linket
+const shareLink = "https://dzsozeph.github.io/warlods-of-draenor/dungeons/orabender.html";
+
+// Fel görgetés
+upBtn.addEventListener('click', () => {
+  window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+});
+
+// Le görgetés
+downBtn.addEventListener('click', () => {
+  window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+});
+
+// Megosztás gomb
+shareBtn.addEventListener('click', () => {
+  window.open(shareLink, "_blank"); // új ablakban nyílik a link
+});
+
+
+  </script>
+</body>
+</html>
