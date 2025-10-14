@@ -236,7 +236,7 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
 #card-leveling:hover,
 #card-raids:hover,
 #card-news:hover{
-	transform: scale(1.050);
+	transform: scale(1.010);
 	transition: all 0.5s ease;
 	box-shadow: 0 0 5px #F8D016;
 	
@@ -254,7 +254,7 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
 	width: 15vw;
 	height: 15vh;
 	background-color: orange;
-	box-shadow: 0 0 10px white;
+	box-shadow: 0 0 5px grey;
 	background-image: url("background-instances.jpg");
 	background-size: cover;
 	background-position: center;
@@ -264,7 +264,7 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
 	width: 15vw;
 	height: 15vh;
 	background-color: orange;
-	box-shadow: 0 0 10px white;
+    box-shadow: 0 0 5px grey;
 	background-image: url("background-raids.jpg");
 	background-size: cover;
 	background-position: center;
@@ -276,7 +276,7 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
 	background-image: url("background-leveling.jpg");
 	background-size: cover;
 	background-position: center;
-	box-shadow: 0 0 10px white;
+    box-shadow: 0 0 5px grey;
 }
 #card-news{
 	width: 15vw;
@@ -284,7 +284,7 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
 	background-image: url("spells.webp");
 	background-size: cover;
 	background-position: center;
-	box-shadow: 0 0 10px white;
+    box-shadow: 0 0 5px grey;
 }
 
 
@@ -315,15 +315,15 @@ background: linear-gradient(0deg, rgba(56, 224, 109, 1) 67%, rgba(69, 69, 69, 1)
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-	 font-family: "IM Fell Great Primer SC", serif;
+	 font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif"
 	
 }
 
 
 .button-discover:hover{
-	box-shadow: 0 0 5px #F8D016;
+	box-shadow: 0 0 5px white;
 	border: none;
-	color: #F8D016;
+
 }
 
 .modal-content.video-modal {
@@ -774,12 +774,11 @@ transition: background-color 0.3s ease;
 #popupModal {
   
   display: none;
-  width: 70vw;    /* szélesség */
+  width: 95vw;    /* szélesség */
   height: 95vh;   /* magasság */
-  background: #fff;
   position: absolute;
   top: 49%;
-  left: 65%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
   border-radius: 50px;
