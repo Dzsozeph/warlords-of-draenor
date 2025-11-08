@@ -828,7 +828,8 @@ transition: background-color 0.3s ease;
 	box-shadow: 0 0 2px #A67C52;
 }
 
-#raid-2{
+    
+    #raid-2{
 	width: 20vw;
 	height: 25vh;
 	background-color: orange;
@@ -846,5 +847,4 @@ transition: background-color 0.3s ease;
 	background-position: center 70%;
 	box-shadow: 0 0 2px #A67C52;
 }
-
 
